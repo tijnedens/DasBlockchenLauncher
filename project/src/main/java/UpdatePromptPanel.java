@@ -11,7 +11,7 @@ public class UpdatePromptPanel extends JPanel {
         panel.add(label);
         panel.add(label2);
         String[] options = new String[]{"Ja", "Nein"};
-        int result = JOptionPane.showOptionDialog(null, panel, "Test", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+        int result = JOptionPane.showOptionDialog(null, panel, "DAS BLÖCKCHEN", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
         return (result == 0);
     }
 }

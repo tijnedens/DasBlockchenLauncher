@@ -9,7 +9,7 @@ public class UpdatingWindow extends JWindow {
 
     public void prompt() {
         JPanel panel = new JPanel(new GridLayout(0,1));
-        JLabel label = new JLabel("Updating...", SwingConstants.CENTER);
+        JLabel label = new JLabel("Üpdaten...", SwingConstants.CENTER);
         panel.add(label);
         this.add(panel);
         this.setSize(200,100);

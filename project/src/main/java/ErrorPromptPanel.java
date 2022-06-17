@@ -10,6 +10,6 @@ public class ErrorPromptPanel {
         panel.add(label);
         panel.add(label2);
         String[] options = new String[]{"Schade"};
-        JOptionPane.showOptionDialog(null, panel, "Test", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+        JOptionPane.showOptionDialog(null, panel, "DAS BLÖCKCHEN", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
     }
 }

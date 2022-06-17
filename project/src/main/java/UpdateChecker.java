@@ -54,17 +54,14 @@ public class UpdateChecker {
                 /* Compare the versions such that *.*.* is allowed as a version format */
                 while (iVersionNumbers < minVersionLength) {
                     if (newVersionNumbers[iVersionNumbers] > oldVersionNumbers[iVersionNumbers]) {
-                        promptUpdate();
-                        FileWriter writer = new FileWriter(versionFile);
-                        writer.write(newVersion);
-                        writer.close();
+                        promptUpdate(versionFile, newVersion);
                         break;
                     }
                     iVersionNumbers++;
                 }
                 /* new version has an added version number added after the dot (1.2.1 is newer than 1.2) */
                 if (iVersionNumbers == minVersionLength && oldVersionNumbers.length < newVersionNumbers.length) {
-                    promptUpdate();
+                    promptUpdate(versionFile, newVersion);
                 }
                 oldVersionScanner.close();
                 newVersionScanner.close();
@@ -101,10 +98,17 @@ public class UpdateChecker {
         return success;
     }
 
-    private void promptUpdate() {
+    private void promptUpdate(File versionFile, String newVersion) {
         System.out.println("There is a new update!");
         boolean wantUpdate = UpdatePromptPanel.prompt();
         if (wantUpdate) {
+            try {
+                FileWriter writer = new FileWriter(versionFile);
+                writer.write(newVersion);
+                writer.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             update();
         }
     }
