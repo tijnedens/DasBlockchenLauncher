@@ -2,3 +2,5 @@ game/*
 version.txt
 game
 .idea
+out
+src
